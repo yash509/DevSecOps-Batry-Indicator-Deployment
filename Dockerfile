@@ -7,7 +7,7 @@ COPY style.css /usr/share/nginx/html/
 COPY script.js /usr/share/nginx/html/
 
 # Expose port 80 to make the app accessible
-EXPOSE 80
+EXPOSE 5000
 
 # Define the command to start Nginx when the container starts
 CMD ["nginx", "-g", "daemon off;"]
