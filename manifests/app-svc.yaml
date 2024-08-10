@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: btry-Indi-service
+  name: btry-indi-service
 spec:
   selector:
-    app: btry-Indi
+    app: btry-indi
   ports:
     - protocol: TCP
       port: 5000
