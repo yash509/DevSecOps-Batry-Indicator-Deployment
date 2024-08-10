@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: btry-Indi-deployment
+  name: btry-indi-deployment
 spec:
   replicas: 3 # You can adjust the number of replicas as needed
   selector:
     matchLabels:
-      app: btry-Indi
+      app: btry-indi
   template:
     metadata:
       labels:
-        app: btry-Indi
+        app: btry-indi
     spec:
       containers:
-        - name: btry-Indi
-          image: yash5090/btry-Indi:latest # Replace with the actual image tag
+        - name: btry-indi
+          image: yash5090/btry-indi:latest # Replace with the actual image tag
           ports:
             - containerPort: 5000 # Replace with the port your Tetris game listens on
