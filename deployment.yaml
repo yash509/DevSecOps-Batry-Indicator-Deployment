@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: btry-Indi-deployment
+  name: btry-indi-deployment
 spec:
   replicas: 6  # Number of desired replicas
   selector:
     matchLabels:
-      app: btry-Indi
+      app: btry-indi
   template:
     metadata:
       labels:
-        app: btry-Indi
+        app: btry-indi
     spec:
       containers:
-      - name: btry-Indi
-        image: yash5090/btry-Indi:latest
+      - name: btry-indi
+        image: yash5090/btry-indi:latest
         ports:
         - containerPort: 5000
