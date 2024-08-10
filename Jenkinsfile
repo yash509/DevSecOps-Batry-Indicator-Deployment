@@ -211,7 +211,7 @@ pipeline {
             steps {
                 script{
                   withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){
-                      sh 'docker-scout sbom yash5090/btry-indi:latest'
+                      sh 'docker-scout sbom --format list yash5090/btry-indi:latest' // docker-scout sbom yash5090/btry-indi:latest
                     }
                 }   
             }
