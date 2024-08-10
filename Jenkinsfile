@@ -150,6 +150,16 @@ pipeline {
                 }   
             }
         }
+
+        stage('Docker Scout Artifacts Analysis') {
+            steps {
+                script{
+                  withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){
+                      sh 'docker-scout sbom --format list yash5090/btry-indi:latest' // docker-scout sbom yash5090/btry-indi:latest
+                    }
+                }   
+            }
+        }
         
         stage("Docker Image Building"){
             steps{
@@ -203,16 +213,6 @@ pipeline {
                        sh 'docker-scout recommendations yash5090/btry-Indi:latest'
                        sh 'docker-scout attestation yash5090/btry-Indi:latest'
                    }
-                }   
-            }
-        }
-
-        stage('Docker Scout Artifacts Analysis') {
-            steps {
-                script{
-                  withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){
-                      sh 'docker-scout sbom --format list yash5090/btry-indi:latest' // docker-scout sbom yash5090/btry-indi:latest
-                    }
                 }   
             }
         }
