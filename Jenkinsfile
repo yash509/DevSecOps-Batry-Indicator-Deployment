@@ -85,7 +85,7 @@ pipeline {
             }
         }
         
-        stage("Sonarqube Analysis ") {                         
+        stage("SonarQube Code Analysis ") {                         
             steps {
                 //dir('Band Website') {
                     withSonarQubeEnv('sonar-server') {
@@ -96,7 +96,7 @@ pipeline {
             }
         }
         
-        stage("quality gate") {
+        stage("Quality Gate") {
             steps {
                 //dir('Band Website') {
                     script {
@@ -263,6 +263,12 @@ pipeline {
                 //dir('BMI Calculator (JS)') {
                     sh 'docker run -d --name btry-indi -p 5000:80 yash5090/btry-Indi:latest' 
                 //}
+            }
+        }
+
+        stage("Sanity Check") {
+            steps {
+                input "Should we ship to prod?"
             }
         }
         
