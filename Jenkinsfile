@@ -135,7 +135,7 @@ pipeline {
             steps {
                 script{
                    withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){
-                       sh 'docker-scout quickview fs://.'
+                       sh 'docker-scout quickview'
                    }
                 }   
             }
@@ -145,7 +145,7 @@ pipeline {
             steps {
                 script{
                    withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){
-                       sh 'docker-scout cves fs://.'
+                       sh 'docker-scout cves'
                    }
                 }   
             }
@@ -203,6 +203,16 @@ pipeline {
                        sh 'docker-scout recommendations yash5090/btry-Indi:latest'
                        sh 'docker-scout attestation yash5090/btry-Indi:latest'
                    }
+                }   
+            }
+        }
+
+        stage('Docker Scout Artifacts Analysis') {
+            steps {
+                script{
+                  withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){
+                      sh 'docker-scout sbom yash5090/btry-indi:latest'
+                    }
                 }   
             }
         }
